@@ -1,21 +1,16 @@
 const { ipcRenderer } = require("electron");
-
-ipcRenderer.on("asynchronous-reply", (event, org) => {
-  console.log("pong");
-});
-
-ipcRenderer.send("asynchronous-message", "ping");
+paper.install(window);
 
 window.onload = function() {
-  var canvas = document.getElementById("myCanvas");
-  paper.setup(canvas);
+  paper.setup("myCanvas");
+  var path = new Path.Circle({
+    center: view.center,
+    radius: 70,
+    fillColor: "red"
+  });
 
-  var path = new paper.Path();
-
-  path.strokeColor = "blue";
-  var start = new paper.Point(100, 100);
-
-  path.moveTo(start);
-  path.lineTo(start.add([200, -50]));
-  paper.view.draw();
+  view.onFrame = function(event) {
+    const new_hue = ipcRenderer.sendSync("synchronous-message", "get_hue");
+    path.fillColor.hue = new_hue;
+  };
 };

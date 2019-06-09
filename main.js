@@ -1,8 +1,15 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 
-ipcMain.on("asynchronous-message", (event, arg) => {
-  console.log(arg);
-  event.reply("asynchronous-reply", "pong");
+let hue = 0;
+
+ipcMain.on("synchronous-message", (event, arg) => {
+  hue += 1;
+
+  if (hue >= 360) {
+    hue = 0;
+  }
+
+  event.returnValue = hue;
 });
 
 function createWindow() {
