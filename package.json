@@ -1,0 +1,22 @@
+{
+  "name": "electron_test",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzmssk/electron_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kzmssk/electron_test/issues"
+  },
+  "homepage": "https://github.com/kzmssk/electron_test#readme",
+  "description": "",
+  "dependencies": {
+    "electron": "^5.0.3"
+  }
+}
