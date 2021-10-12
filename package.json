@@ -18,7 +18,7 @@
   "description": "",
   "dependencies": {
     "browserify": "^16.2.3",
-    "electron": "^5.0.3",
+    "electron": "^11.5.0",
     "paper": "^0.12.1"
   }
 }
